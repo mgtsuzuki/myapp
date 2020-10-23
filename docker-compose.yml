@@ -13,5 +13,12 @@ services:
   redis:
      image: redis
 
+  database:
+    image: postgres:9.6
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: some-long-secure-password
+      POSTGRES_DB: myapp_development
+
 volumes:
   gem_cache:
