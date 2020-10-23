@@ -5,4 +5,9 @@ RSpec.describe "PageViews" do
         visit '/welcome'
         expect(page.text).to match(/This page has been viewed \d.* times!/)
     end
+
+    it "Is enhanced with JavaScript on", js: true do
+        visit '/welcome'
+        expect(page).to have_text(:all, "ENHANCED!")
+    end
 end
