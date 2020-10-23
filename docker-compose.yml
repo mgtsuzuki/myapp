@@ -9,16 +9,17 @@ services:
     volumes:
       - .:/usr/src/app
       - gem_cache:/gems
+    env_file:
+      - .env/development/database
+      - .env/development/web
 
   redis:
      image: redis
 
   database:
     image: postgres:9.6
-    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: some-long-secure-password
-      POSTGRES_DB: myapp_development
+    env_file:
+      - .env/development/database
 
 volumes:
   gem_cache:
